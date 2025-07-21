@@ -3,11 +3,68 @@
         WebKit.className = "Webview empty"
 
         document.body.appendChild(WebKit)
-        var WebBrowser = {
+        var Plugins = document.createElement("div") 
+        Plugins.id = "plugins"
+        Plugins.className = "Web-controls-plugins"
+
+        WebKit.appendChild(Plugins)
+        const WebBrowser = {
             web: {
-                view: document.getElementById("web"),
+                view: document.getElementById("web-container"),
+            },
+            controls: {
+                init(text) {
+                        // Verification style obrigatory
+                        if (WebKit.className === "finish") {
+                            WebKit.classList.remove('finish')
+                            WebKit.classList.remove('empty')
+                            WebKit.classList.add('init')
+                        }
+                        else {
+                            WebKit.classList.add('processing')
+                        }
+                        var init = document.createElement("div")
+                        init.id = "Web-requisits"
+                        init.className = "Web-controls"
+                        var life = document.createElement("div")
+                        life.id = "Web-controls-init"
+                        life.className = "Web-requisits"
+
+                        var kiwi = document.createElement("p")
+                        if (text === "yes") {
+                        kiwi.textContent = "Thankyou. WebViews all rights reserved©"}
+                        kiwi.id = "Web-controls-text"
+                        kiwi.className = "Web-controls-textThank"
+
+
+                        WebKit.appendChild(init)
+                        init.appendChild(life)
+                        life.appendChild(kiwi)
+                },
                 createPlugin: {
-                        textFloating: document.getElementById("web"),
+                        init() {
+                            var MyPlugin = document.createElement("div")
+                            MyPlugin.id = "Myplugin"
+                            MyPlugin.className = "Web-controls-Myplugin"
+
+                            document.getElementById("Web-requisits").appendChild(MyPlugin)
+                        },
+                        textFloating() {
+                            return document.getElementById("Myplugin")
+                        },
+                        obj: {
+                            canvasid: null,
+                            p: null,
+                            iniobjs() {
+                                var canvas = document.createElement("canvas")
+                                canvas.id = "Myplugin-canvas"
+                                canvas.className = "Web-MyPlugin-canvas"
+                            },
+                            rect() {
+
+                            }
+                        }
+
                 }
             },
             install: {
@@ -38,7 +95,7 @@
                     var element = document.createElement("div")
                     element.id = "MyCanvas"
                     element.className = "PLUGIN-CDATAFRAMESDRAW-CANVAS"
-                    WebKit.appendChild(element)
+                    Plugins.appendChild(element)
                     WebKit.classList.remove('empty')
                     WebKit.classList.add('prossecing')
 
@@ -53,15 +110,24 @@
                     WebKit.classList.add('finish')
                     },
                     init() {
+                        if (WebKit.className === "finish") {
+                            WebKit.classList.remove('finish')
+                            WebKit.classList.remove('empty')
+                            WebKit.classList.add('processing')
+                        }
+                        else {
+                            WebKit.classList.add('processing')
+                        }
                         var install = document.createElement("div")
                         install.textContent = "Use WebBrowser.install.CDATAFRAMESDRAW.rect(x,y,w,h) to rect"
                         install.className = "PLUGIN-CDATAFRAMESDRAW-TEXTINIT"
 
-                        WebKit.appendChild(install)
+                        Plugins.appendChild(install)
                     }
             },
                 WSSENDS() {
-                    localStorage.setItem("Wsstoraje", pass)
+                    localStorage.setItem("Wsstoraje", "SSTORAGE EMPTY")
                 }
             }
         }
+        export { WebBrowser }
