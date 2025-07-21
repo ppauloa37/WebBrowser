@@ -2,7 +2,9 @@ import * as WebKit from "https://cdn.jsdelivr.net/gh/ppauloa37/WebBrowser@main/P
 var WebBrowser = {
             web: {
                 view: document.getElementById("web"),
-                viewtext: document.getElementById("web").textContent,
+                createPlugin: {
+                        textFloating: document.getElementById("web"),
+                }
             },
             install: {
                 SearchLate: {
