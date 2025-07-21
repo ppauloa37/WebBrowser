@@ -1,5 +1,9 @@
-import * as WebKit from "https://cdn.jsdelivr.net/gh/ppauloa37/WebBrowser@main/Plugin/webkit.js"
-var WebBrowser = {
+        var WebKit = document.createElement("div")
+        WebKit.id = "web-container"
+        WebKit.className = "Webview empty"
+
+        document.body.appendChild(WebKit)
+        var WebBrowser = {
             web: {
                 view: document.getElementById("web"),
                 createPlugin: {
