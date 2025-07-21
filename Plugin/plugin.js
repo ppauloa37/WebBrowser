@@ -1,3 +1,4 @@
+import * as WebKit from "https://cdn.jsdelivr.net/gh/ppauloa37/WebBrowser@main/Plugin/webkit.js"
 var WebBrowser = {
             web: {
                 view: document.getElementById("web"),
